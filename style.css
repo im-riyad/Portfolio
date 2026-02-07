@@ -1,88 +1,77 @@
-:root {
-    --bg: #030712;
-    --card-bg: #111827;
-    --accent: #10b981;
-    --text-main: #f3f4f6;
-    --text-dim: #9ca3af;
-}
-
-/* 1. Global Reset & Scaling Fix */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-html {
-    font-size: 16px; /* Base size for 'rem' units */
-    scroll-behavior: smooth;
-}
 
 body {
-    background-color: var(--bg);
-    color: var(--text-main);
-    font-family: 'Inter', system-ui, sans-serif;
-    line-height: 1.5;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+background: #f8fafc;
+color: #0f172a;
 }
 
-/* 2. Responsive Navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 5%;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    backdrop-filter: blur(12px);
-    z-index: 1000;
+
+.navbar {
+display: flex;
+justify-content: space-between;
+padding: 20px 10%;
+background: white;
+position: sticky;
+top: 0;
 }
 
-.nav-links a {
-    color: var(--text-main);
-    text-decoration: none;
-    margin-left: 1.5rem;
-    font-size: 0.9rem;
+
+nav a {
+margin: 0 10px;
+text-decoration: none;
+color: #334155;
 }
 
-/* 3. Hero Section Scaling */
+
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    padding-top: 80px; /* Space for fixed nav */
+text-align: center;
+padding: 80px 20px;
 }
 
-.hero h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem); /* Dynamically scales font */
-    line-height: 1.1;
-    margin-bottom: 1rem;
+
+.hero-img {
+width: 150px;
+border-radius: 50%;
+margin-bottom: 20px;
 }
 
-/* 4. The Grid (The most important part for responsiveness) */
-.project-grid {
-    display: grid;
-    /* This line automatically decides how many columns fit */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem 10%;
+
+.section {
+padding: 60px 10%;
 }
 
-/* 5. Mobile Specific Fixes */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Hide links on tiny screens, or use a burger menu */
-    }
-    
-    .hero {
-        text-align: center;
-        justify-content: center;
-    }
-    
-    .section-title {
-        text-align: center;
-        font-size: 2rem;
-    }
+
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+}
+
+
+.card {
+background: white;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+
+.reveal {
+opacity: 0;
+transform: translateY(40px);
+transition: 0.8s;
+}
+
+
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+
+
+body.dark {
+background: #020617;
+color: #e5e7eb;
 }
