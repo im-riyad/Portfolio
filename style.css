@@ -1,74 +1,88 @@
 :root {
     --bg: #030712;
     --card-bg: #111827;
-    --accent: #10b981; /* Emerald green */
+    --accent: #10b981;
     --text-main: #f3f4f6;
     --text-dim: #9ca3af;
 }
 
+/* 1. Global Reset & Scaling Fix */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px; /* Base size for 'rem' units */
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg);
     color: var(--text-main);
-    font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-/* Custom Cursor */
-#cursor {
-    width: 25px;
-    height: 25px;
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 1000;
-    transition: transform 0.1s ease;
-}
-
+/* 2. Responsive Navigation */
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 2rem 5%;
+    align-items: center;
+    padding: 1.5rem 5%;
     position: fixed;
+    top: 0;
     width: 100%;
-    backdrop-filter: blur(10px);
-    z-index: 100;
+    backdrop-filter: blur(12px);
+    z-index: 1000;
 }
 
-.accent { color: var(--accent); }
-.mono { font-family: monospace; color: var(--accent); }
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.9rem;
+}
 
+/* 3. Hero Section Scaling */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 0 10%;
+    padding-top: 80px; /* Space for fixed nav */
 }
 
-.hero h1 { font-size: 5rem; }
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem); /* Dynamically scales font */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
 
+/* 4. The Grid (The most important part for responsiveness) */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 0 10%;
+    /* This line automatically decides how many columns fit */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 10%;
 }
 
-.project-card {
-    background: var(--card-bg);
-    border: 1px solid #1f2937;
-    padding: 2rem;
-    border-radius: 1rem;
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-5px);
+/* 5. Mobile Specific Fixes */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links on tiny screens, or use a burger menu */
+    }
+    
+    .hero {
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 2rem;
+    }
 }
