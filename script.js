@@ -18,3 +18,7 @@ links.forEach(link => {
     link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2)');
     link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
 });
+// Disable custom cursor on touch devices
+if (window.matchMedia("(pointer: coarse)").matches) {
+    document.querySelector('#cursor').style.display = 'none';
+}
