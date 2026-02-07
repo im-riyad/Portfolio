@@ -2,55 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Walid Hassan Riyad</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walid Hassan Riyad - Portfolio</title>
   <style>
+    /* Basic reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #020617;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f172a;
       color: #e5e7eb;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
     }
-    .card {
-      background: #020617;
-      border: 1px solid #1e293b;
-      padding: 2.5rem 3rem;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,.5);
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.4rem;
-      font-weight: 700;
-    }
-    p {
-      margin: .6rem 0;
-      font-size: 1.05rem;
-      opacity: .85;
-    }
-    a {
-      display: inline-block;
-      margin-top: 1.2rem;
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
+
+    a { color: #38bdf8; text-decoration: none; }
     a:hover { text-decoration: underline; }
+
+    header {
+      text-align: center;
+      padding: 5rem 1rem 2rem 1rem;
+    }
+    header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; opacity: 0.85; }
+
+    section { padding: 3rem 1rem; max-width: 900px; margin: auto; }
+    h2 { font-size: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #38bdf8; display: inline-block; padding-bottom: 0.3rem; }
+
+    .about, .projects, .contact { margin-top: 2rem; }
+
+    .project {
+      background: #1e293b;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    .project:hover { transform: scale(1.02); }
+
+    footer { text-align: center; padding: 2rem 1rem; opacity: 0.7; font-size: 0.9rem; }
   </style>
 </head>
 <body>
-  <div class="card">
+
+  <header>
     <h1>Walid Hassan Riyad</h1>
-    <p>Software Engineering Student</p>
-    <p>Bangladesh</p>
-    <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">
-      GitHub Profile →
-    </a>
-  </div>
+    <p>Software Engineering Student | Aspiring Product Manager | Full Stack Enthusiast</p>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Walid Hassan Riyad, a passionate Software Engineering student from Bangladesh. I enjoy building efficient software, exploring AI & Machine Learning, and sharing my projects with the world. My goal is to create meaningful tech solutions and grow as a professional in the software industry.</p>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Project Name 1</h3>
+      <p>Brief description of the project. <a href="#">GitHub Link</a></p>
+    </div>
+
+    <div class="project">
+      <h3>Project Name 2</h3>
+      <p>Brief description of the project. <a href="#">GitHub Link</a></p>
+    </div>
+
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:riyad@walidhassanriyad.swe.bd">walid@walidhassanriyad.swe.bd</a></p>
+    <p>GitHub: <a href="https://github.com/im-riyad">github.com/YOUR_GITHUB_USERNAME</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/mdwalidhassanriyad/">linkedin.com/in/YOUR_LINKEDIN</a></p>
+  </section>
+
+  <footer>
+    &copy; © 2026 Walid Hassan Riyad. All rights reserved.
+  </footer>
+
 </body>
 </html>
