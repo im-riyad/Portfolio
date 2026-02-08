@@ -1,0 +1,15 @@
+{
+  "name": "Walid Hassan Riyad Portfolio",
+  "short_name": "WHR Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#4f8cff",
+  "icons": [
+    {
+      "src": "Title-logo1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
