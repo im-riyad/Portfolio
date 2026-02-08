@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://walidhassanriyad.swe.bd/sitemap.xml
