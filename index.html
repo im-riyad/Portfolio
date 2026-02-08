@@ -19,14 +19,21 @@ html{scroll-behavior:smooth}
 body{background:radial-gradient(circle at top,#0f1630,#070b14);color:var(--text);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 
-header{position:fixed;width:100%;top:0;z-index:99;background:rgba(7,11,20,.7);backdrop-filter:blur(16px)}
-nav{max-width:1200px;margin:auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;font-size:1.3rem;z-index: 101;}
+/* --- REFINED BOLDER HEADER --- */
+header{position:fixed;width:100%;top:0;z-index:100;background:rgba(7,11,20,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav{max-width:1200px;margin:auto;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center}
 
-/* Navigation */
-nav ul{display:flex;gap:1.5rem;list-style:none}
-nav a{color:var(--muted);font-weight:500;transition:.3s;font-size: 0.95rem}
-nav a.active, nav a:hover{color:var(--accent)}
+.logo{font-weight:800;font-size:1.5rem;letter-spacing:-0.5px;z-index:101;transition:0.3s ease}
+.logo a span{color:var(--accent)}
+.logo:hover{transform:scale(1.02);text-shadow:0 0 15px rgba(79,140,255,0.4)}
+
+nav ul{display:flex;gap:2.5rem;list-style:none}
+nav a{color:var(--muted);font-weight:700;transition:.3s;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;position:relative;padding:5px 0}
+nav a:hover, nav a.active{color:var(--accent)}
+
+/* Active Underline Effect */
+nav a::after{content:'';position:absolute;bottom:0;left:0;width:0%;height:2px;background:var(--accent);transition:0.3s}
+nav a.active::after{width:100%}
 
 /* Hamburger Icon */
 .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 101; }
@@ -54,14 +61,14 @@ nav a.active, nav a:hover{color:var(--accent)}
 }
 #backToTop.show { opacity: 1; visibility: visible; }
 
-/* Mobile Menu */
+/* Mobile Menu Fixes */
 @media(max-width:768px){
     .hamburger { display: flex; }
     nav ul {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 75%;
+        width: 80%;
         height: 100vh;
         background: rgba(7, 11, 20, 0.98);
         backdrop-filter: blur(20px);
@@ -74,12 +81,13 @@ nav a.active, nav a:hover{color:var(--accent)}
     }
     nav ul.active { right: 0; }
     nav ul li { margin: 1.5rem 0; }
-    nav a { font-size: 1.3rem; }
+    nav a { font-size: 1.2rem; }
     .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
+/* Original Sections Content */
 .hero{min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; text-align:center; padding: 80px 20px;}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,#4f8cff33,#9b5cff22);filter:blur(120px)}
 .hero-content{max-width:800px;z-index:1}
@@ -120,7 +128,6 @@ footer{text-align:center;padding:3rem;color:var(--muted);border-top:1px solid va
 }
 @media(max-width:650px){
     .skills{grid-template-columns: repeat(2, 1fr);}
-    #backToTop { bottom: 20px; right: 20px; width: 45px; height: 45px; }
 }
 </style>
 </head>
@@ -129,7 +136,7 @@ footer{text-align:center;padding:3rem;color:var(--muted);border-top:1px solid va
 <header>
 <nav>
 <div class="logo">
-    <a href="https://walidhassanriyad.swe.bd">Walid Hassan Riyad</a>
+    <a href="https://walidhassanriyad.swe.bd">Walid Hassan <span>Riyad</span></a>
 </div>
 <div class="hamburger" id="hamburger">
     <span></span>
@@ -197,7 +204,7 @@ footer{text-align:center;padding:3rem;color:var(--muted);border-top:1px solid va
 <section id="contact">
 <h2 class="reveal">Contact Me</h2>
 <div class="contact-container reveal">
-<p>Get in touch: <a href="mailto:riyad@walidhassanriyad.swe.bd" style="color:var(--accent);">riyad@walidhassanriyad.swe.bd</a></p>
+<p>Get in touch: <a href="mailto:riyad@walidhassanriyad.swe.bd" style="color:var(--accent); font-weight:700;">riyad@walidhassanriyad.swe.bd</a></p>
 <div class="contact-icons">
     <a href="mailto:riyad@walidhassanriyad.swe.bd" title="Email Me"><i class="fas fa-envelope"></i></a>
     <a href="https://www.facebook.com/walid.h.riyad" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -233,14 +240,12 @@ navLinks.forEach(link => {
 // Back to Top and Scroll Logic
 const btt = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
-    // Show/Hide Back to Top
     if (window.pageYOffset > 400) { btt.classList.add('show'); }
     else { btt.classList.remove('show'); }
 
-    // Scroll Highlight for Nav
     let current = '';
     document.querySelectorAll('section').forEach(s => {
-        if (pageYOffset >= s.offsetTop - 120) current = s.getAttribute('id');
+        if (pageYOffset >= s.offsetTop - 150) current = s.getAttribute('id');
     });
     navLinks.forEach(link => {
         link.classList.remove('active');
