@@ -25,7 +25,7 @@ header{
     width:100%;
     top:0;
     z-index:100;
-    background:rgba(7, 11, 20, 0.5); /* Lower opacity for more transparency */
+    background:rgba(7, 11, 20, 0.5); 
     backdrop-filter:blur(20px);
     border-bottom:1px solid var(--border);
 }
@@ -71,23 +71,43 @@ nav a.active::after{width:100%}
     .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
-/* --- BALANCED HERO SECTION --- */
+/* --- BALANCED HERO SECTION WITH ANIMATED TAG --- */
 .hero{min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; text-align:center; padding: 100px 20px;}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,#4f8cff33,#9b5cff22);filter:blur(120px)}
 .hero-content{max-width:900px;z-index:1}
 
 .hero-tag {
     display: inline-block;
-    color: var(--accent);
-    font-size: 0.85rem;
+    color: var(--text);
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1.2rem;
-    background: rgba(79, 140, 255, 0.1);
-    padding: 6px 16px;
+    padding: 8px 20px;
     border-radius: 50px;
-    border: 1px solid rgba(79, 140, 255, 0.2);
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+/* Shimmer Animation */
+.hero-tag::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(to right, transparent, rgba(79, 140, 255, 0.4), transparent);
+    transform: rotate(30deg);
+    animation: shimmer 4s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { left: -60%; }
+    100% { left: 150%; }
 }
 
 .hero h1{
@@ -171,7 +191,7 @@ footer{text-align:center;padding:3rem;color:var(--muted);border-top:1px solid va
 
 <section class="hero" id="home">
 <div class="hero-content reveal">
-    <span class="hero-tag">Software Engineering Student</span>
+    <div class="hero-tag">Software Engineering Student</div>
     <h1>Learning To Build<br><span>Real Systems</span></h1>
     <p>I design scalable software, AI-driven security systems, and production-ready architectures.</p>
     <a href="#projects" class="btn">View Work</a>
