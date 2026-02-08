@@ -198,6 +198,29 @@ footer{text-align:center;padding:3rem;color:var(--muted);border-top:1px solid va
 @media(max-width:650px){
     .skills{grid-template-columns: repeat(2, 1fr);}
 }
+    /* Custom Scrollbar for Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #070b14; /* Matches your background */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4f8cff; /* Your accent blue */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b6edb; /* Darker blue on hover */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4f8cff #070b14;
+}
 </style>
 </head>
 <body>
