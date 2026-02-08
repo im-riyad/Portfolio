@@ -417,13 +417,6 @@ const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active') })
 }, { threshold: 0.1 });
 reveals.forEach(r => observer.observe(r));
-    if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(reg => console.log('Service Worker Registered!'))
-      .catch(err => console.log('Service Worker Failed', err));
-  });
-}
 </script>
 </body>
 </html>
