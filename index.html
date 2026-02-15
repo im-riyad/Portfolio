@@ -43,6 +43,7 @@
       "jobTitle": "Software Engineer",
       "alumniOf": "Software Engineering Student",
       "sameAs": [
+        "https://lnk.bio/walid.h.riyad",
         "https://github.com/im-riyad",
         "https://www.linkedin.com/in/mdwalidhassanriyad/",
         "https://www.facebook.com/walid.h.riyad",
@@ -108,7 +109,6 @@ a{text-decoration:none;color:inherit}
     height: 100%;
     background: var(--accent);
     box-shadow: 0 0 15px var(--accent);
-    /* Faster animation: 0.8s */
     animation: load-anim 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
@@ -258,6 +258,9 @@ section h2{font-size: clamp(2rem, 5vw, 2.6rem); margin-bottom:2rem; font-weight:
 .contact-icons a{width:55px;height:55px;background:var(--glass);display:flex;align-items:center;justify-content:center;border-radius:14px;font-size:1.4rem;color:var(--accent);transition:.3s; border: 1px solid var(--border);}
 .contact-icons a:hover {background: var(--accent); color: white; transform: translateY(-5px);}
 
+/* Highlight the Lnk.Bio icon */
+.contact-icons a.lnk-bio-highlight { border-color: var(--accent); background: rgba(79, 140, 255, 0.1); }
+
 footer{text-align:center;padding:3rem;color:var(--muted);border-top:1px solid var(--border); font-size: 0.9rem;}
 
 .reveal{opacity:0;transform:translateY(30px);transition:1s ease-out}
@@ -364,11 +367,17 @@ footer{text-align:center;padding:3rem;color:var(--muted);border-top:1px solid va
 <div class="contact-container reveal">
 <p>Get in touch: <a href="mailto:riyad@walidhassanriyad.swe.bd" style="color:var(--accent); font-weight:700;">riyad@walidhassanriyad.swe.bd</a></p>
 <div class="contact-icons">
-    <a href="mailto:riyad@walidhassanriyad.swe.bd" title="Email Walid Hassan Riyad"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.facebook.com/walid.h.riyad" target="_blank" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/walid.h.riyad/" target="_blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/im-riyad" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/mdwalidhassanriyad/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://lnk.bio/walid.h.riyad" target="_blank" title="All My Links" class="lnk-bio-highlight"><i class="fas fa-link"></i></a>
+    
+    <a href="https://github.com/im-riyad" target="_blank" title="GitHub Profile"><i class="fab fa-github"></i></a>
+    
+    <a href="https://www.linkedin.com/in/mdwalidhassanriyad/" target="_blank" title="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+    
+    <a href="mailto:riyad@walidhassanriyad.swe.bd" title="Email Me"><i class="fas fa-envelope"></i></a>
+    
+    <a href="https://www.facebook.com/walid.h.riyad" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    
+    <a href="https://www.instagram.com/walid.h.riyad/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 </div>
 </div>
 </section>
@@ -378,16 +387,13 @@ footer{text-align:center;padding:3rem;color:var(--muted);border-top:1px solid va
 </footer>
 
 <script>
-// Snappy Loader Script
 window.addEventListener("load", function() {
     const loader = document.getElementById("loader");
-    // Shortened delay to 500ms for faster page access
     setTimeout(() => {
         loader.classList.add("fade-out");
     }, 500); 
 });
 
-// Navigation Script
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -404,7 +410,6 @@ navLinks.forEach(link => {
     });
 });
 
-// Scroll Events
 const btt = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
     if (window.pageYOffset > 400) { btt.classList.add('show'); }
@@ -420,7 +425,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Intersection Observer for Reveal
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active') })
